@@ -1,8 +1,7 @@
 package com.springboot.controller;
 
 import com.springboot.model.User;
-import com.springboot.service.UserServiceImpl;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.springboot.service.UserService;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,8 +15,11 @@ import java.util.List;
 @RequestMapping("/bootstrap")
 public class BootstrapController {
 
-    @Autowired
-    private UserServiceImpl userService;
+    private final UserService userService;
+
+    public BootstrapController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping("/adminpage")
     public String getAdmin(Model model) {

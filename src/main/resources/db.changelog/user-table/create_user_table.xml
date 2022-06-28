@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="Rest-app-1" author="Ivan Saushin" dbms="postgresql">
+        <comment>Добавление таблиц для Юзера и Роли</comment>
+        <sqlFile relativeToChangelogFile="true" path="sql/create_user_role_table.sql"/>
+        <rollback>
+            <sqlFile relativeToChangelogFile="true" path="sql/user_role_rollback.sql"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

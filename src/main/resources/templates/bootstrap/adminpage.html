@@ -32,9 +32,9 @@
          style="padding-top: 0; height: 45px; min-height: 40px">
         <div class="nav-item">
             <span sec:authentication="name" class="font-weight-bold"></span> with roles:
-            <span th:each="grantedAuthority : ${#authentication.principal.getAuthorities()}">
-                <span th:text="${grantedAuthority.getAuthority()}"></span>
-                </span>
+<!--            <span th:each="grantedAuthority : ${#authentication.principal.getAuthorities()}">-->
+<!--                <span th:text="${grantedAuthority.getAuthority()}"></span>-->
+<!--                </span>-->
         </div>
 
         <ul class="navbar-nav px-3">
