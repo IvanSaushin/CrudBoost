@@ -64,10 +64,11 @@
                 <h1 class="h2">Admin panel</h1>
             </div>
 
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="search" class="form-control" id="exampleFormControlInput1" placeholder="Write email">
-                    <button type="submit" class="btn btn-primary">Search</button>
+            <form id="searchForm" class="form-horizontal">
+                <div class="input-group mb-3 w-50 p-3">
+                    <input type="search" class="form-control" id="searchField" placeholder="Search by lastname...">
+                    <a class="btn btn-outline-secondary" type="button"
+                       onclick="findUser();return false" id="SearchButton">Искать</a>
                 </div>
             </form>
 
@@ -201,6 +202,7 @@
     <script type="text/javascript" src="/js/deleteUser.js"></script>
     <script type="text/javascript" src="/js/editUser.js"></script>
     <script type="text/javascript" src="/js/newUser.js"></script>
+    <script type="text/javascript" src="/js/findUser.js"></script>
 
 </body>
 </html>
