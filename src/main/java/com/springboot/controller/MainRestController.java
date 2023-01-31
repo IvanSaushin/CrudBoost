@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
@@ -32,7 +31,6 @@ public class MainRestController {
 
     @GetMapping("/search")
     public List<User>search(@RequestParam ("name") String name) {
-        System.out.println("111: " + name);
         return userService.getAllUsers();
     }
 
