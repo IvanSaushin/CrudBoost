@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="Rest-app-2" author="Musheg Simonyan" dbms="postgresql">
+    <changeSet id="MT-21" author="Musheg Simonyan" dbms="postgresql">
         <comment>Добавление дефолтного Юзера</comment>
         <sqlFile relativeToChangelogFile="true" path="sql/insert_user.sql"/>
         <rollback>

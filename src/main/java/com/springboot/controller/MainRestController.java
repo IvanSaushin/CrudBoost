@@ -22,7 +22,9 @@ public class MainRestController {
 
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
-        return userService.getAllUsers();
+        List<User> list = userService.getAllUsers();
+        System.out.println("111: " + list);
+        return list;
     }
 
     @GetMapping("/getUser/{id}")

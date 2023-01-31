@@ -14,6 +14,7 @@ public interface UserService {
     void saveUser(User user);
 
     List<User> getAllUsers();
+    List<User> findUsersBySearch();
     User findUserByFirstname(String firstname);
     User getUserByEmail(String email);
     User getUserById(Long id);
