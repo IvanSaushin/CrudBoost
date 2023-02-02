@@ -22,9 +22,7 @@ public class MainRestController {
 
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
-        List<User> list = userService.getAllUsers();
-        System.out.println("111: " + list);
-        return list;
+        return userService.getAllUsers();
     }
 
     @GetMapping("/getUser/{id}")
@@ -33,9 +31,9 @@ public class MainRestController {
     }
 
     @GetMapping("/search")
-    public List<User>search(@RequestParam ("name") String name) {
-        System.out.println("111: " + name);
-        return userService.getAllUsers();
+    public List<User> search (@RequestParam ("name") String email) {
+        List<User> list = userService.findUsersBySearch(email);
+        return list;
     }
 
     @PostMapping("/create")
