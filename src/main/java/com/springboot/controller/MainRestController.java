@@ -1,12 +1,16 @@
 package com.springboot.controller;
 
+import com.springboot.Application;
 import com.springboot.model.User;
 import com.springboot.service.RoleService;
 import com.springboot.service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
 import java.util.List;
 
 @RestController
@@ -31,8 +35,30 @@ public class MainRestController {
 
     @GetMapping("/search")
     public List<User>search(@RequestParam ("name") String name) {
-        return userService.getAllUsers();
+        List <User> list = userService.getAllUsers();
+        List <User> result = new LinkedList<>();
+        for (User user:list) {
+            if (user.getEmail().contains(name)) {
+                result.add(user);
+            }
+        }
+//      решение через for i
+//        for (int i = 0; i < list.size(); i++) {
+//            if (list.get(i).getEmail().contains(name)) {
+//                result.add(list.get(i));
+//            }
+//        }
+        return result;
     }
+
+//    @EventListener (ApplicationReadyEvent.class)
+//    public void init () {
+//        List<User> list = userService.getAllUsers();
+//
+//        for (User user : list) {
+//            System.out.println(user.getEmail());
+//        }
+//    }
 
     @PostMapping("/create")
     public ResponseEntity<User> create(@RequestBody User user) {
