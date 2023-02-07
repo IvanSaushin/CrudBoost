@@ -8,6 +8,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 @RestController
 @RequestMapping("/r-api/")
@@ -30,7 +32,12 @@ public class MainRestController {
     }
 
     @GetMapping("/search")
-    public List<User>search(@RequestParam ("name") String name) {
+    public List<User> search(@RequestParam ("name") String name) {
+        List<User> list = userService.getAllUsers();
+        Stream<User> userStream = list.stream();
+        Predicate<User> predicate;
+        predicate = (n) -> n.equals(name);
+
         return userService.getAllUsers();
     }
 
