@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RestController
@@ -34,11 +35,18 @@ public class MainRestController {
     @GetMapping("/search")
     public List<User> search(@RequestParam ("name") String name) {
         List<User> list = userService.getAllUsers();
-        Stream<User> userStream = list.stream();
-        Predicate<User> predicate;
-        predicate = (n) -> n.equals(name);
+        List<User> userStream = list.stream()
+                .filter(u->u.getEmail().contains(name))
+                .collect(Collectors.toList());
+        return userStream;
+    }
 
-        return userService.getAllUsers();
+    @GetMapping("/emails")
+    public List<String> emails() {
+        List<String> emails = userService.getAllUsers().stream()
+                .map(User::getEmail)
+                .collect(Collectors.toList());
+        return emails;
     }
 
     @PostMapping("/create")
