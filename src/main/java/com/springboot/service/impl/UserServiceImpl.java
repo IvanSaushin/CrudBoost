@@ -1,8 +1,9 @@
-package com.springboot.service;
+package com.springboot.service.impl;
 
 import com.springboot.model.Role;
 import com.springboot.model.User;
 import com.springboot.repository.UserRepository;
+import com.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,7 +25,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
         this.userRepository = userRepository;
     }
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-
 
 
     @Override

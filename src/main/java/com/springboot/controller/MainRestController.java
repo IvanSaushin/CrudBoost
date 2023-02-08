@@ -2,12 +2,11 @@ package com.springboot.controller;
 
 import com.springboot.model.User;
 import com.springboot.service.RoleService;
-import com.springboot.service.UserServiceImpl;
+import com.springboot.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.SQLOutput;
 import java.util.List;
 
 @RestController
