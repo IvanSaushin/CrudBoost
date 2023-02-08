@@ -35,21 +35,23 @@ public class Adress {
 
     public Adress () {}
 
-    public Adress (Long id, String country, String city, String street, String house, String apartment, LocalDate date_start) {
+    public Adress (Long id, String country, String city, String street, String house, String apartment, LocalDate date_start, Long user_id) {
         this.id = id;
         this.country = country;
         this.city = city;
         this.house = house;
         this.apartment = apartment;
         this.date_start = date_start;
+        this.user_id = user_id;
     }
 
-    public Adress (String country, String city, String street, String house, String apartment, LocalDate date_start) {
+    public Adress (String country, String city, String street, String house, String apartment, LocalDate date_start, Long user_id) {
         this.country = country;
         this.city = city;
         this.house = house;
         this.apartment = apartment;
         this.date_start = date_start;
+        this.user_id = user_id;
     }
 
     public Long getId() {
@@ -78,5 +80,9 @@ public class Adress {
 
     public LocalDate getDate_start() {
         return date_start;
+    }
+
+    public Long getUser_id() {
+        return user_id;
     }
 }
