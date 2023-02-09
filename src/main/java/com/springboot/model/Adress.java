@@ -39,6 +39,7 @@ public class Adress {
         this.id = id;
         this.country = country;
         this.city = city;
+        this.street = street;
         this.house = house;
         this.apartment = apartment;
         this.date_start = date_start;
@@ -48,6 +49,7 @@ public class Adress {
     public Adress (String country, String city, String street, String house, String apartment, LocalDate date_start, Long user_id) {
         this.country = country;
         this.city = city;
+        this.street = street;
         this.house = house;
         this.apartment = apartment;
         this.date_start = date_start;
@@ -84,5 +86,13 @@ public class Adress {
 
     public Long getUser_id() {
         return user_id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 }

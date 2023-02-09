@@ -5,7 +5,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 
-    <changeSet id="MT-050" author="Simonyan Musheg" dbms="postgresql">
+    <changeSet id="MT-050" author="Musheg Simonyan" dbms="postgresql">
         <comment>Добавление сущности Адресов</comment>
         <sqlFile relativeToChangelogFile="true" path="sql/MT-050-1.sql"/>
         <rollback>
