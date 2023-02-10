@@ -39,21 +39,23 @@ public class AdressServiceImpl implements AdressService {
 
     @Override
     public void update(Adress adress) {
-
+    adressRepository.save(adress);
     }
 
     @Override
     public void deleteById(Long id) {
-
+    adressRepository.deleteById(id);
     }
 
     @EventListener (ApplicationReadyEvent.class)
     public void test () {
-        System.out.println("test");
-        String country = "Russia";
-        Adress adress = new Adress("Russia", "Astrakhan", "Sverdlova", "5/1", "2", LocalDate.now(), 0L);
-        adressRepository.save(adress);
-        System.out.println(adress);
+//        System.out.println("test");
+//        Adress adress = new Adress("Russia", "Astrakhan", "Sverdlova", "5/1", "2", LocalDate.now(), 0L);
+//        adressRepository.save(adress);
+//        adressRepository.findAll();
+//        adressRepository.findById(4L);
+//        adressRepository.deleteById(4L);
+//        System.out.println(adressRepository.findAll());
     }
 
 
