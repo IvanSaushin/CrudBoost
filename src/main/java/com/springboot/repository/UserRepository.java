@@ -7,6 +7,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
     User findUserByFirstname(String firstname);
@@ -14,6 +16,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("from User where email =:email")
     User getUserByEmail(@Param("email") String email);
 
+    @Query("from User where email like concat('%', :email, '%')")
+    List<User> findUsersBySearch(@Param("email") String searchName);
+
     @Query("from Role where role = :name")
     Role getRole(@Param("name") String name);
+
 }
