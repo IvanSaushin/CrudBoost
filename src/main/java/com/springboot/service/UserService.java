@@ -15,8 +15,11 @@ public interface UserService {
 
     List<User> getAllUsers();
     List<User> findUsersBySearch(String searchName);
+
     User findUserByFirstname(String firstname);
+
     User getUserByEmail(String email);
+
     User getUserById(Long id);
 
     void update(User user);
@@ -24,7 +27,9 @@ public interface UserService {
     void deleteById(Long id);
 
     Role getRole(String rolename);
+
     void setRole(User user, String role);
+
     void setDefaultRole(User user);
 
 }

@@ -9,18 +9,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
-@Service
-@Transactional
-public class RoleService {
+public interface RoleService {
 
-    @Autowired
-    private RoleRepository roleRepository;
+    Role findRoleById(Long id);
 
-    public Role findRoleById(Long id){
-        return roleRepository.findById(id).get();
-    }
-
-    public List<Role> getRoles() {
-        return roleRepository.findAll();
-    }
+    List<Role> getRoles();
 }
