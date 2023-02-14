@@ -19,7 +19,6 @@ public class MainRestController {
     @Autowired
     private RoleService roleService;
 
-
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
         return userService.getAllUsers();
@@ -31,8 +30,8 @@ public class MainRestController {
     }
 
     @GetMapping("/search")
-    public List<User> search (@RequestParam ("name") String email) {
-        List<User> list = userService.findUsersBySearch(email);
+    public List<User> search (@RequestParam ("name") String searchName) {
+        List<User> list = userService.findUsersBySearch(searchName);
         return list;
     }
 

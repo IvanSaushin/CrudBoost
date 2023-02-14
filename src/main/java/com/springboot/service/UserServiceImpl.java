@@ -33,8 +33,8 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     }
 
     @Override
-    public List<User> findUsersBySearch(String email) {
-        return userRepository.findUsersBySearch(email);
+    public List<User> findUsersBySearch(String searchName) {
+        return userRepository.findUsersBySearch(searchName);
     }
 
     @Override
