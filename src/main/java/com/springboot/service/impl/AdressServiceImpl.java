@@ -39,7 +39,8 @@ public class AdressServiceImpl implements AdressService {
 
     @Override
     public void update(Adress adress) {
-    adressRepository.save(adress);
+        adress.setApartment(adress.getApartment());
+        adressRepository.save(adress);
     }
 
     @Override
