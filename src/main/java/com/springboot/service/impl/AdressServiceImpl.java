@@ -1,0 +1,50 @@
+package com.springboot.service.impl;
+
+import com.springboot.Application;
+import com.springboot.model.Adress;
+import com.springboot.repository.AdressRepository;
+import com.springboot.service.AdressService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
+import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.util.List;
+
+@Service
+public class AdressServiceImpl implements AdressService {
+
+    private AdressRepository adressRepository;
+
+    @Autowired
+    public void setAdressService (AdressRepository adressRepository) {
+        this.adressRepository = adressRepository;
+    }
+
+    @Override
+    public void saveAdress(Adress adress) {
+        adressRepository.save(adress);
+    }
+
+    @Override
+    public List<Adress> getAllAdresses() {
+         return adressRepository.findAll();
+    }
+
+    @Override
+    public Adress getAdressById(Long id) {
+        return adressRepository.findById(id).get();
+    }
+
+    @Override
+    public void update(Adress adress) {
+        adressRepository.save(adress);
+    }
+
+    @Override
+    public void deleteById(Long id) {
+    adressRepository.deleteById(id);
+    }
+
+}
