@@ -2,6 +2,7 @@ package com.springboot.controller;
 
 import com.springboot.model.User;
 import com.springboot.service.UserService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/bootstrap")
 public class BootstrapController {
@@ -23,6 +25,7 @@ public class BootstrapController {
 
     @GetMapping("/adminpage")
     public String getAdmin(Model model) {
+        log.info("Вход на страницу /adminpage");
         List<User> users = userService.getAllUsers();
         model.addAttribute("users", users);
         model.addAttribute("person", new User());
@@ -31,7 +34,9 @@ public class BootstrapController {
 
     @GetMapping("/userpage")
     public String getUser(Model model) {
-        UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        log.info("Вход на страницу /userpage");
+        UserDetails userDetails = (UserDetails)
+                SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("user", userDetails);
         return "/bootstrap/userpage";
     }
