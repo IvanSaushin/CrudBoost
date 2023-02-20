@@ -8,4 +8,5 @@
       http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
     <include file="db.changelog/user-table/create_user_table.xml"/>
     <include file="db.changelog/user-table/insert_user.xml"/>
+    <include file="db.changelog/changesets/MT-050/2023_02_20_d_MT-050.xml"/>
 </databaseChangeLog>
