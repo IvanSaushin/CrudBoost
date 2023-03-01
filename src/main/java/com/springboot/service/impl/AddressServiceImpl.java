@@ -4,6 +4,7 @@ import com.springboot.model.Address;
 import com.springboot.repository.AddressRepository;
 import com.springboot.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,17 +20,17 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void saveAddress(Address address) {
+    public void save(Address address) {
         addressRepository.save(address);
     }
 
     @Override
-    public List<Address> getAllAddresses() {
+    public List<Address> findAll() {
         return addressRepository.findAll();
     }
 
     @Override
-    public Address getAddressById(Long id) {
+    public Address findById(Long id) {
         return addressRepository.findById(id).get();
     }
 

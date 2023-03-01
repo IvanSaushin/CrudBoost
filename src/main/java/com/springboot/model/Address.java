@@ -28,28 +28,32 @@ public class Address {
     @Column (name = "date_start")
     private LocalDate date_start;
 
-    @Column (name = "user_id")
-    private Long user_id;
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @OneToOne (fetch = FetchType.LAZY)
+    User user;
+
 
     public Address () {}
 
-    public Address (Long id, String country, String city, String house, String apartment, LocalDate date_start, Long user_id) {
+    public Address (Long id, String country, String city, String house, String apartment, LocalDate date_start) {
         this.id=id;
         this.country=country;
         this.city=city;
         this.house=house;
         this.apartment=apartment;
         this.date_start=date_start;
-        this.user_id = user_id;
     }
-    public Address (String country, String city, String street, String house, String apartment, LocalDate date_start, Long user_id) {
+    public Address (String country, String city, String street, String house, String apartment, LocalDate date_start) {
         this.country = country;
         this.city = city;
         this.street = street;
         this.house = house;
         this.apartment = apartment;
         this.date_start = date_start;
-        this.user_id = user_id;
+    }
+
+    public void setUser(com.springboot.model.User user) {
+        this.user = user;
     }
 
     public Long getId() {
@@ -107,19 +111,10 @@ public class Address {
     public void setDate_start(LocalDate date_start) {
         this.date_start = date_start;
     }
-
-    public Long getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(Long user_id) {
-        this.user_id = user_id;
-    }
-
     @Override
     public String toString() {
         return "Address" + id + ", country: " + getCountry() + ", city: " + getCity() +
                 ", street: " + getStreet() + ", house: " + getHouse() + ", appartment: " + getApartment() +
-                ", date_start: " + getDate_start() + ", user_id: " + getUser_id() ;
+                ", date_start: " + getDate_start();
     }
 }

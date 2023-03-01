@@ -9,6 +9,7 @@ create table if not exists "addresses" (
     house          varchar(255),
     apartment      varchar(255),
     date_start     timestamp        not null,
-    user_id        bigint
---    FOREIGN KEY (user_id) REFERENCES users (id)
+    user_id        bigint,
+    CONSTRAINT fk_user_id
+    FOREIGN KEY (user_id) REFERENCES users (id)
     );

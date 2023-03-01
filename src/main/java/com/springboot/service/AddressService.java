@@ -9,9 +9,9 @@ import java.util.List;
 @Transactional
 public interface AddressService {
 
-    void saveAddress(Address address);
-    List<Address> getAllAddresses();
-    Address getAddressById(Long id);
+    void save(Address address);
+    List<Address> findAll();
+    Address findById(Long id);
     void update(Address address);
     void deleteById(Long id);
 }
