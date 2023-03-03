@@ -19,36 +19,36 @@ public class AddressController {
     @Autowired
     private AddressService addressService;
 
-    @GetMapping("/getAll")
+    @GetMapping
     public List<Address> findAll()  {
-        log.info("GET запрос на /addresses/getAll");
+        log.info("GET запрос на /addresses/");
         return addressService.findAll();
     }
 
-    @GetMapping("/getById/{id}")
-    public Address findById(@PathVariable("id") Long id) {
-        log.info("GET запрос на /addresses/getById{id}");
-        return addressService.findById(id);
+    @GetMapping("/{id}")
+    public Address find(@PathVariable("id") Long id) {
+        log.info("GET запрос на /addresses/{id}");
+        return addressService.find(id);
     }
 
-    @PostMapping("/save")
+    @PostMapping
     public ResponseEntity<Address> create(@RequestBody Address address) {
         addressService.save(address);
-        log.info("POST запрос на /addresses/save");
+        log.info("POST запрос на /addresses/");
         return ResponseEntity.ok().body(address);
     }
 
-    @PutMapping("/update")
+    @PutMapping
     public ResponseEntity<Address> update(@RequestBody Address address) {
-        log.info("PUT запрос на /addresses/update");
+        log.info("PUT запрос на /addresses/");
         addressService.update(address);
         return ResponseEntity.ok().body(address);
     }
 
-    @DeleteMapping("/deleteById/{id}")
+    @DeleteMapping("/{id}")
     public void delete(@PathVariable("id") Long id) {
-        log.info("DELETE запрос на /addresses/deleteById/{id}");
-        addressService.deleteById(id);
+        log.info("DELETE запрос на /addresses/{id}");
+        addressService.delete(id);
     }
 }
 
